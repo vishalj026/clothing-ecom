@@ -1,8 +1,8 @@
+import CategoryList from './components/category-list/category-list.component';
+
 function App() {
   return (
-    <div>
-      Hello World!
-    </div>
+    <CategoryList />
   );
 }
 
