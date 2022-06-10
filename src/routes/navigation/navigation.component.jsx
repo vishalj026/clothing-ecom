@@ -11,15 +11,11 @@ import './navigation.styles.scss';
 import { CartContext } from "../../contexts/cart.context";
 
 const Navigation = () => {
-    const {currentUser, setCurrentUser} = useContext(UserContext);
-    const {isCartOpen, setIsCartOpen} = useContext(CartContext);
+    const {currentUser} = useContext(UserContext);
+    const {isCartOpen} = useContext(CartContext);
 
     const signOutHandler = async () => {
         await signOutUser();
-    }
-
-    const cartIconClickHandler = () => {
-        setIsCartOpen(!isCartOpen);
     }
 
     return (
@@ -36,7 +32,7 @@ const Navigation = () => {
                     <Link className="nav-link" to='/auth'>SIGN IN</Link>
                     )}
 
-                    <CartIcon onClick={cartIconClickHandler}/>
+                    <CartIcon/>
                 </div>
                 {isCartOpen && <CartDropdown />}
             </div>
