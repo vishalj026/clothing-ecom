@@ -1,11 +1,11 @@
-import "./category-item.styles.scss";
+import "./category-list-item.styles.scss";
 
-const CategoryItem = (props) => {
+const CategoryListItem = (props) => {
 
   const { imageUrl, title } = props.category;
 
   return (
-  <div className="category-container">
+  <div className="category-list-container">
     <div
       className="background-image"
       style={{
@@ -20,4 +20,4 @@ const CategoryItem = (props) => {
   );
 };
 
-export default CategoryItem;
+export default CategoryListItem;
