@@ -4,7 +4,7 @@ import { createAuthUserFromEmailAndPassword, createUserDocFromAuth } from '../..
 import Button from '../UI/button/button.component';
 import FormInput from '../UI/form-input/form-input.component';
 
-import './sign-up.styles.scss';
+import { SignUpContainer } from './sign-up.styles';
 
 const defaultFormFields = {
     displayName: '',
@@ -31,7 +31,7 @@ const SignUp = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if(password != confirmPassword) {
+        if(password !== confirmPassword) {
             alert('Passwords do not match');
             return;
         }
@@ -46,7 +46,7 @@ const SignUp = () => {
 
         }
         catch(e) {
-            if(e.code == 'auth/email-already-in-use') {
+            if(e.code === 'auth/email-already-in-use') {
                 alert('Email already in use');
             }
             console.log('Error creating user with email and password', e);
@@ -54,13 +54,10 @@ const SignUp = () => {
     }
 
     return (
-        <div className='sign-up-container'>
+        <SignUpContainer>
             <h2>Don't have an account?</h2>
             <span>Sign up with your email and password</span>
             <form onSubmit={handleSubmit}>
-                {/* <label htmlFor="displayName">Display Name</label>
-                <input type="text" required name="displayName" onChange={handleChange} value={displayName}/> */}
-
                 <FormInput label="Display Name" type="text" required name="displayName" onChange={handleChange} value={displayName}/>
 
                 <FormInput label="Email" type="email" required name="email" onChange={handleChange} value={email}/>
@@ -71,7 +68,7 @@ const SignUp = () => {
 
                 <Button type="submit">Sign Up</Button>
             </form>
-        </div>
+        </SignUpContainer>
     );
 }
 
